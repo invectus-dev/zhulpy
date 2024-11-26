@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'no',
     ];
 
     /**
@@ -45,5 +46,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function postingan(){
+        return $this->hasMany(produk::class);
     }
 }
