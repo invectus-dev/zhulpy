@@ -13,7 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Store') }}
+                        {{ __('Property') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                        {{ __('Subscribe') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -38,6 +41,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if (Auth::user()->role == 'admin')
+                            <x-dropdown-link :href="route('admin')">
+                                {{ __('Posting') }}
+                            </x-dropdown-link>
+                        @else
+                            <x-dropdown-link :href="route('postingan')">
+                                {{ __('Posting') }}
+                            </x-dropdown-link>
+                        @endif
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -76,7 +88,11 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Property') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                {{ __('Subscribe') }}
             </x-responsive-nav-link>
         </div>
 
@@ -88,6 +104,16 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                @if (Auth::user()->role == 'admin')
+                    <x-responsive-nav-link :href="route('admin')">
+                        {{ __('Postingan') }}
+                    </x-responsive-nav-link>
+                @else
+                    <x-responsive-nav-link :href="route('postingan')">
+                        {{ __('Postingan') }}
+                    </x-responsive-nav-link>
+                @endif
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
@@ -106,4 +132,3 @@
         </div>
     </div>
 </nav>
-

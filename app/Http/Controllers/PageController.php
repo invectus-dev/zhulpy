@@ -6,7 +6,6 @@ use App\Models\kategori;
 use App\Models\produk;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -28,7 +27,7 @@ class PageController extends Controller
     public function tambahKategori(Request $request)
     {
         kategori::create([
-            'kategori' => $request->kategori
+            'kategori' => $request->kategori,
         ]);
 
         return redirect()->back();

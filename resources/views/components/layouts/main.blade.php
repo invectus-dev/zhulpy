@@ -8,8 +8,11 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body class="bg-white tex-black">
-    {{ $slot }}
+<body class="bg-gray-200 tex-black">
+    <div class="">
+        {{ $slot }}
+
+    </div>
 </body>
 
 </html>

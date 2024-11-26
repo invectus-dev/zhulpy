@@ -59,10 +59,11 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function tambahNo(Request $request){
+    public function tambahNo(Request $request)
+    {
 
         User::where('id', Auth::user()->id)->update([
-            'no' => $request->no
+            'no' => $request->no,
         ]);
 
         return redirect()->back();

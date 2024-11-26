@@ -55,7 +55,7 @@ class productController extends Controller
         }
 
 
-        return redirect()->back()->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan.') ;
     }
 
     public function preview($id)
@@ -88,5 +88,5 @@ class productController extends Controller
 
         return redirect()->back();
     }
-    
+
 }
